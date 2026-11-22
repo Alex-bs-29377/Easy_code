@@ -3,7 +3,7 @@ import aiohttp
 import asyncio
 
 from vkbottle import Bot, API, AiohttpClient
-from handlers import start, echo_bot, task1, task2, task3, task4
+from handlers import start, echo_bot, task1, task2, task3, task4, attach, action
 
 import os
 from dotenv import load_dotenv
@@ -24,6 +24,8 @@ async def main():
     api = API(token=TOKEN, http_client=http_client)
     bot = Bot(api=api)
 
+    action.start_func(bot)
+    attach.start_func(bot)
     await task4.start_func(bot)
     await task2.start_func(bot)
     await task3.start_func(bot)
